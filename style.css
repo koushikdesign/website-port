@@ -1,0 +1,698 @@
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   PAGE
+======================================== */
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+
+    font-family: var(--font-main);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-body);
+
+    padding-bottom: 4rem;
+}
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.container {
+    padding: var(--space-sm);
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+header {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-sm);
+
+    height: 3rem;
+
+    align-items: center;
+}
+
+/* ========================================
+   IDENTITY
+======================================== */
+
+.identity {
+    height: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    text-decoration: none;
+    color: var(--color-text);
+
+    text-align: left;
+    width: auto;
+    justify-self: start;
+
+    transition: color 0.2s ease;
+}
+
+.identity h1 {
+    font-size: var(--fs-name);
+    line-height: 0.5;
+    font-weight: var(--fw-name);
+}
+
+.identity p {
+    margin-top: var(--space-sm);
+
+    font-size: var(--fs-role);
+    line-height: 0.5;
+    font-weight: var(--fw-role);
+    color: var(--color-text);
+}
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+header > a {
+    position: relative;
+
+    width: 100%;
+
+    text-align: center;
+    text-decoration: none;
+
+    color: var(--color-text);
+
+    font-size: var(--fs-nav);
+    line-height: 1;
+    font-weight: var(--fw-nav);
+
+    transition: color 0.2s ease;
+}
+
+header > a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -0.3rem;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--color-blue);
+
+    transform: translateX(-50%);
+
+    transition: width 0.2s ease;
+}
+
+header > a:hover,
+header > a.active-page {
+    color: var(--color-blue);
+}
+
+header > a:hover::after,
+header > a.active-page::after {
+    width: 2rem;
+}
+
+/* ========================================
+   DIVIDERS + VIEW SWITCH
+======================================== */
+
+.divider-group {
+    margin-top: var(--space-sm);
+
+    height: 1.5rem;
+
+    display: grid;
+    grid-template-rows: 1px 1fr 1px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+
+    background: var(--color-text);
+}
+
+.view-switch {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 0.25rem;
+}
+
+.view-btn {
+    background: none;
+    border: none;
+
+    padding: 0;
+
+    font-family: var(--font-main);
+    font-size: var(--fs-view-switch);
+    font-weight: var(--fw-view-switch);
+    color: var(--color-muted);
+
+    cursor: pointer;
+}
+
+.view-btn.active {
+    color: var(--color-text);
+}
+
+.switch-divider {
+    font-size: var(--fs-view-switch);
+    color: var(--color-muted);
+}
+
+/* ========================================
+   WORK PAGE / PROJECTS GRID
+======================================== */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-sm);
+
+    margin-top: var(--space-sm);
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+
+    cursor: pointer;
+
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-thumbnail {
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    border: none;
+}
+
+.project-thumbnail img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+}
+
+.project-info {
+    margin-top: var(--space-sm);
+}
+
+.project-info h2 {
+    font-size: var(--fs-project-title);
+    line-height: 1;
+    font-weight: var(--fw-project-title);
+    transition: color 0.2s ease;
+}
+
+.project-info p {
+    margin-top: 0.15rem;
+
+    font-size: var(--fs-project-category);
+    line-height: 1;
+    font-weight: var(--fw-project-category);
+    color: var(--color-muted);
+}
+
+.project-card:hover .project-info h2 {
+    color: var(--color-blue);
+}
+
+/* ========================================
+   WORK PAGE / PROJECTS LIST
+======================================== */
+
+.projects-list {
+    display: none;
+
+    margin-top: var(--space-sm);
+}
+
+.list-project {
+    margin-bottom: var(--space-sm);
+
+    font-size: var(--fs-list);
+    line-height: 0.9;
+    font-weight: var(--fw-list);
+    color: var(--color-text);
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+}
+
+.list-project:hover {
+    color: var(--color-blue);
+}
+
+/* ========================================
+   PROJECT PAGE / HERO
+======================================== */
+
+.project-hero {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-sm);
+
+    margin-top: var(--space-sm);
+
+    align-items: stretch;
+}
+
+.project-meta {
+    grid-column: span 1;
+
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+}
+
+.project-hero-image {
+    grid-column: span 3;
+}
+
+.project-hero-image img {
+    width: 100%;
+    display: block;
+}
+
+.project-name {
+    flex: 1;
+}
+
+.project-role {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-tools {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.project-meta h1 {
+    font-size: var(--fs-project-page-title);
+    font-weight: var(--fw-project-page-title);
+    line-height: 1;
+}
+
+.project-description {
+    margin-top: var(--space-sm);
+
+    font-size: var(--fs-project-description);
+    line-height: 1.3;
+    font-weight: var(--fw-project-description);
+
+    color: var(--color-muted);
+}
+
+.detail-label {
+    font-size: var(--fs-detail);
+    line-height: 1;
+    font-weight: var(--fw-detail);
+
+    color: var(--color-text);
+}
+
+.detail-value {
+    margin-top: 0.15rem;
+    margin-bottom: 1rem;
+
+    font-size: var(--fs-detail);
+    line-height: 1;
+    font-weight: var(--fw-detail);
+
+    color: var(--color-muted);
+}
+
+/* ========================================
+   PROJECT PAGE / VIDEO
+======================================== */
+
+.project-content {
+    margin-top: var(--space-sm);
+}
+
+.project-content video {
+    width: 100%;
+    display: block;
+}
+
+/* ========================================
+   PROJECT PAGE / STYLEFRAMES
+======================================== */
+
+.styleframes-section {
+    margin-top: 1.5rem;
+}
+
+.section-title {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+
+    font-size: var(--fs-section-title);
+    line-height: 1;
+    font-weight: 400;
+}
+
+.styleframes-grid {
+    margin-top: var(--space-sm);
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+}
+
+.styleframes-grid img {
+    width: 100%;
+    display: block;
+}
+
+.full-width-frame {
+    grid-column: 1 / -1;
+}
+
+/* ========================================
+   INFO PAGE
+======================================== */
+
+.info-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-sm);
+
+    margin-top: var(--space-sm);
+}
+
+.info-photo {
+    grid-column: span 1;
+}
+
+.info-photo img {
+    width: 100%;
+    display: block;
+}
+
+.info-content {
+    grid-column: span 3;
+}
+
+.info-content h2 {
+    margin-bottom: 1.5rem;
+
+    font-size: var(--fs-info-heading);
+    line-height: 1;
+    font-weight: var(--fw-info-heading);
+}
+
+.info-content p {
+    max-width: 75rem;
+
+    margin-bottom: 1.5rem;
+
+    font-size: var(--fs-info-body);
+    line-height: 1.3;
+    font-weight: var(--fw-info-body);
+}
+
+/* ========================================
+   PLAY PAGE
+======================================== */
+
+.play-grid {
+    column-count: 3;
+    column-gap: var(--space-sm);
+
+    padding-top: var(--space-sm);
+}
+
+.play-grid video,
+.play-grid img {
+    width: 100%;
+
+    display: block;
+
+    margin-bottom: var(--space-sm);
+
+    break-inside: avoid;
+
+    vertical-align: top;
+
+    object-fit: cover;
+}
+
+/* ========================================
+   BOTTOM NAV
+======================================== */
+
+.bottom-nav {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: var(--space-sm);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-sm);
+
+    align-items: center;
+
+    background: var(--color-bg);
+
+    border-top: 1px solid var(--color-text);
+
+    z-index: 1000;
+}
+
+.footer-label {
+    text-align: left;
+
+    font-size: var(--fs-footer);
+    line-height: 1;
+    font-weight: var(--fw-footer);
+}
+
+.bottom-nav a {
+    text-align: center;
+    text-decoration: none;
+
+    color: var(--color-text);
+
+    font-size: var(--fs-footer);
+    line-height: 1;
+    font-weight: var(--fw-footer);
+
+    transition: color 0.2s ease;
+}
+
+.bottom-nav a:hover {
+    color: var(--color-blue);
+}
+
+/* ========================================
+   HOME LANDING PAGE
+======================================== */
+
+.home-landing {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: var(--space-sm);
+}
+
+.landing-link {
+    position: relative;
+
+    text-decoration: none;
+
+    color: var(--color-text);
+
+    font-family: var(--font-home);
+    font-size: var(--fs-home);
+    line-height: 16rem;
+    letter-spacing: 1rem;
+    font-weight: var(--fw-home);
+    transition: color 0.2s ease;
+}
+
+.landing-link:hover {
+    color: var(--color-blue);
+}
+
+.landing-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 0.5rem;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--color-blue);
+
+    transform: translateX(-50%);
+
+    transition: width 0.2s ease;
+}
+
+.landing-link:hover::after {
+    width: 100%;
+}
+
+/* ========================================
+   GRID DEBUG
+======================================== */
+
+.grid-debug {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    z-index: 9999;
+
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 0.75rem;
+
+    column-gap: var(--space-sm);
+    row-gap: var(--space-sm);
+
+    padding: var(--space-sm);
+}
+
+.grid-debug div {
+    background: rgba(255, 0, 0, 0.08);
+}
+
+.grid-debug-large {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    z-index: 9998;
+
+    display: none;
+
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 3rem;
+
+    column-gap: var(--space-sm);
+    row-gap: var(--space-sm);
+
+    padding: var(--space-sm);
+}
+
+.grid-debug-large div {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+/* ========================================
+   QUICK CHANGE SETTINGS
+   Change font sizes here only
+======================================== */
+:root {
+    /* Colors */
+    --color-bg: #efefef;
+    --color-text: #111;
+    --color-muted: #999;
+    --color-blue: #0909d6;
+
+    /* Fonts */
+    --font-main: "Space Mono", monospace;
+    --font-home: "Space Mono", monospace;
+
+    /* Spacing */
+    --space-sm: 0.75rem;
+
+    /* Font Sizes */
+    --fs-body: 1rem;
+
+    --fs-name: 1rem;
+    --fs-role: 0.75rem;
+    --fs-nav: 1rem;
+
+    --fs-view-switch: 0.75rem;
+    --fs-project-title: 1rem;
+    --fs-project-category: 0.75rem;
+    --fs-list: 2rem;
+
+    --fs-project-page-title: 1rem;
+    --fs-project-description: 0.75rem;
+    --fs-detail: 0.75rem;
+    --fs-section-title: 3rem;
+
+    --fs-info-heading: 1rem;
+    --fs-info-body: 1rem;
+
+    --fs-footer: 1rem;
+
+    --fs-home: 12rem;
+
+    /* Font Weights */
+    --fw-body: 200;
+
+    --fw-name: 200;
+    --fw-role: 200;
+    --fw-nav: 200;
+
+    --fw-view-switch: 200;
+    --fw-project-title: 200;
+    --fw-project-category: 200;
+    --fw-list: 200;
+
+    --fw-project-page-title: 200;
+    --fw-project-description: 200;
+    --fw-detail: 200;
+    --fw-section-title: 200;
+
+    --fw-info-heading: 200;
+    --fw-info-body: 200;
+
+    --fw-footer: 200;
+
+    --fw-home: 200;
+}
