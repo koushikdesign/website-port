@@ -1,109 +1,87 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play — Koushik Raju</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="description" content="Motion experiments and visual explorations by Koushik Raju.">
 
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="identity">
+                <h1>Koushik Raju</h1>
+            </a>
 
-<div class="container">
+            <nav class="primary-nav" aria-label="Primary navigation">
+                <a href="work.html">WORK</a>
+                <a href="info.html">INFO</a>
+                <a href="play.html" class="active-page" aria-current="page">PLAY</a>
+            </nav>
+        </header>
 
-    <header>
-
-        <a href="index.html" class="identity">
-            <h1>Koushik Raju</h1>
-            <p class="site-category">Graphic/Motion Designer</p>
-        </a>
-
-        <a href="work.html">WORK</a>
-        <a href="info.html">INFO</a>
-        <a href="play.html" class="active-page">PLAY</a>
-
-    </header>
-
-    <div class="divider-group">
-
-        <div class="divider"></div>
-
-        <div></div>
-
-        <div class="divider"></div>
-
-    </div>
-
-    <main>
-
-        <section class="play-grid">
-
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="play-videos/video-01.mp4" type="video/mp4">
-            </video>
-
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="play-videos/video-02.mp4" type="video/mp4">
-            </video>
-
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="play-videos/video-03.mp4" type="video/mp4">
-            </video>
-
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="play-videos/video-04.mp4" type="video/mp4">
-            </video>
-
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="play-videos/video-05.mp4" type="video/mp4">
-            </video>
-
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="play-videos/video-06.mp4" type="video/mp4">
-            </video>
-
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="play-videos/video-07.mp4" type="video/mp4">
-            </video>
-
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="play-videos/video-08.mp4" type="video/mp4">
-            </video>
-
-        </section>
-
-    </main>
-
-    <footer class="bottom-nav">
-
-        <div class="footer-label">
-            LET'S CONNECT
+        <div class="divider-group">
+            <div class="divider"></div>
         </div>
-    
-        <a href="https://www.instagram.com/koushik_66/" target="_blank">
-            INSTAGRAM
-        </a>
-    
-        <a href="https://www.linkedin.com/in/koushik-raju-a9a730242/?skipRedirect=true" target="_blank">
-            LINKEDIN
-        </a>
-    
-        <a href="mailto:koushikraju42@gmail.com">
-            EMAIL
-        </a>
-    
-    </footer>
 
-</div>
-```
+        <main>
+            <section class="play-grid" aria-label="Motion experiments">
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="play-videos/video-01.mp4" type="video/mp4">
+                </video>
 
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="play-videos/video-02.mp4" type="video/mp4">
+                </video>
+
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="play-videos/video-03.mp4" type="video/mp4">
+                </video>
+
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="play-videos/video-04.mp4" type="video/mp4">
+                </video>
+
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="play-videos/video-05.mp4" type="video/mp4">
+                </video>
+
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="play-videos/video-06.mp4" type="video/mp4">
+                </video>
+
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="play-videos/video-07.mp4" type="video/mp4">
+                </video>
+
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="play-videos/video-08.mp4" type="video/mp4">
+                </video>
+            </section>
+        </main>
+
+        <footer class="bottom-nav">
+            <div class="footer-label">
+                LET'S CONNECT
+            </div>
+
+            <a href="https://www.instagram.com/koushik_66/" target="_blank" rel="noopener noreferrer">
+                INSTAGRAM
+            </a>
+
+            <a href="https://www.linkedin.com/in/koushik-raju-a9a730242/?skipRedirect=true" target="_blank" rel="noopener noreferrer">
+                LINKEDIN
+            </a>
+
+            <a href="mailto:koushikraju42@gmail.com">
+                EMAIL
+            </a>
+        </footer>
+    </div>
 </body>
 
 </html>
