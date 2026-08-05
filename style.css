@@ -8,16 +8,6 @@
     box-sizing: border-box;
 }
 
-html,
-body,
-a,
-button,
-input,
-textarea,
-select {
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='5' viewBox='0 0 5 5'%3E%3Crect width='5' height='5' fill='%230909d6'/%3E%3C/svg%3E") 2 2, auto;
-}
-
 button,
 input,
 textarea,
@@ -45,12 +35,20 @@ body {
 ======================================== */
 
 .container {
-    padding: 12px var(--space-sm);
+    padding: 0.75rem var(--space-sm);
 }
 
 /* ========================================
    HEADER
 ======================================== */
+
+.site-top {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: var(--color-bg);
+}
 
 header {
     display: grid;
@@ -62,7 +60,7 @@ header {
     align-items: center;
 
     margin: 0;
-    padding: 6px var(--space-sm);
+    padding: 0.375rem var(--space-sm);
 
     background: var(--color-blue);
 }
@@ -99,7 +97,7 @@ header {
 
 .identity h1 {
     font-size: var(--fs-name);
-    line-height: 1;
+    line-height: 1.75;
     font-weight: var(--fw-name);
 }
 
@@ -142,7 +140,7 @@ header {
     bottom: -0.3rem;
 
     width: 0;
-    height: 1px;
+    height: 0.0625rem;
 
     background: var(--color-header-text);
 
@@ -168,12 +166,12 @@ header {
 .divider-group {
     margin-top: var(--space-sm);
 
-    height: 1px;
+    height: 0.0625rem;
 }
 
 .divider {
     width: 100%;
-    height: 1px;
+    height: 0.0625rem;
 
     background: var(--color-text);
 }
@@ -183,24 +181,47 @@ header {
 ======================================== */
 
 .projects-grid {
+    position: relative;
+
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-sm);
+    column-gap: var(--space-sm);
+    row-gap: var(--space-sm);
+    align-content: start;
 
-    margin-top: var(--space-sm);
+    margin-top: 0.75rem;
+    padding-left: calc(25% + (var(--space-sm) / 4));
+    min-height: calc(100vh - 6rem);
 }
 
 .project-card {
     display: flex;
     flex-direction: column;
+}
 
-    cursor: pointer;
+/* Join the horizontal divider and carry the column split to the page bottom. */
+.projects-grid::before {
+    content: "";
 
-    text-decoration: none;
-    color: inherit;
+    position: absolute;
+    top: calc(-1 * var(--space-sm));
+    bottom: calc(-1 * (4rem + 0.75rem));
+    left: calc(25% - (var(--space-sm) / 4));
+
+    width: 0.0625rem;
+    background: var(--color-text);
+}
+
+.work-about {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: calc(25% - (var(--space-sm) * 3 / 4));
 }
 
 .project-thumbnail {
+    display: block;
     aspect-ratio: 1 / 1;
 
     overflow: hidden;
@@ -230,6 +251,12 @@ header {
     transition: color 0.2s ease;
 }
 
+.project-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.work-about p,
 .project-info p {
     margin-top: 0.15rem;
 
@@ -239,7 +266,35 @@ header {
     color: var(--color-muted);
 }
 
-.project-card:hover .project-info h2 {
+.work-about p {
+    font-size: calc(var(--fs-project-category) * 1.5);
+    line-height: 1;
+    margin-top: var(--space-sm);
+}
+
+.work-about-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    margin-top: calc(var(--space-sm) * 3);
+}
+
+.work-about-links a {
+    font-size: var(--fs-project-title);
+    line-height: 1;
+    font-weight: var(--fw-project-title);
+    color: var(--color-text);
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.work-about-links a:hover {
+    color: var(--color-blue);
+}
+
+.project-title-link:hover {
     color: var(--color-blue);
 }
 
@@ -467,7 +522,7 @@ header {
 
     background: var(--color-bg);
 
-    border-top: 1px solid var(--color-text);
+    border-top: 0.0625rem solid var(--color-text);
 
     z-index: 1000;
 }
@@ -541,7 +596,7 @@ header {
     bottom: 0.5rem;
 
     width: 0;
-    height: 2px;
+    height: 0.125rem;
 
     background: var(--color-blue);
 
@@ -571,7 +626,7 @@ header {
     --font-home: "roc-grotesk", "Helvetica Neue", Arial, sans-serif;
 
     /* Spacing */
-    --space-sm: 12px;
+    --space-sm: 0.75rem;
 
     /* Font Sizes */
     --fs-body: 1rem;
@@ -618,7 +673,7 @@ header {
     --fw-home: 400;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 47.5rem) {
     body {
         padding-bottom: 0;
     }
@@ -682,13 +737,24 @@ header {
         line-height: 1.1;
         letter-spacing: 0.35rem;
     }
-}
 
-@media (min-width: 761px) and (max-width: 1100px) {
     .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+        padding-left: 0;
+        min-height: auto;
     }
 
+    .projects-grid::before {
+        display: none;
+    }
+
+    .work-about {
+        position: static;
+        width: auto;
+    }
+
+}
+
+@media (min-width: 47.5625rem) and (max-width: 68.75rem) {
     .play-grid {
         column-count: 2;
     }
