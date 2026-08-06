@@ -44,7 +44,7 @@ body {
 
 .site-top {
     position: sticky;
-    top: 0;
+    top: 0.75rem;
     z-index: 100;
 
     background: var(--color-bg);
@@ -302,27 +302,20 @@ header {
    PROJECT PAGE / HERO
 ======================================== */
 
-.project-hero {
+.project-intro-layout {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-sm);
 
     margin-top: var(--space-sm);
-
-    align-items: stretch;
 }
 
-.project-meta {
-    grid-column: span 1;
-
-    display: flex;
-    flex-direction: column;
-
-    height: 100%;
+.project-hero {
+    grid-column: 2 / span 3;
 }
 
 .project-hero-image {
-    grid-column: span 3;
+    width: 100%;
 }
 
 .project-hero-image img {
@@ -330,58 +323,17 @@ header {
     display: block;
 }
 
-.project-name {
-    flex: 1;
-}
-
-.project-role {
-    flex: 1;
-
+.project-headings {
+    grid-column: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
 }
 
-.project-tools {
-    flex: 1;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-.project-meta h1 {
-    font-size: var(--fs-project-page-title);
-    font-weight: var(--fw-project-page-title);
+.project-headings h2 {
+    font-size: 0.75rem;
     line-height: 1;
-}
-
-.project-description {
-    margin-top: var(--space-sm);
-
-    font-size: var(--fs-project-description);
-    line-height: 1.3;
-    font-weight: var(--fw-project-description);
-
-    color: var(--color-muted);
-}
-
-.detail-label {
-    font-size: var(--fs-detail);
-    line-height: 1;
-    font-weight: var(--fw-detail);
-
-    color: var(--color-text);
-}
-
-.detail-value {
-    margin-top: 0.15rem;
-    margin-bottom: 1rem;
-
-    font-size: var(--fs-detail);
-    line-height: 1;
-    font-weight: var(--fw-detail);
-
+    font-weight: var(--fw-project-title);
     color: var(--color-muted);
 }
 
@@ -682,7 +634,7 @@ header {
     .primary-nav,
     .divider-group,
     .projects-grid,
-    .project-hero,
+    .project-intro-layout,
     .info-section,
     .bottom-nav {
         grid-template-columns: 1fr;
@@ -695,6 +647,15 @@ header {
     .identity,
     .primary-nav {
         grid-column: 1;
+    }
+
+    .project-hero,
+    .project-headings {
+        grid-column: 1;
+    }
+
+    .project-headings {
+        gap: 0.6rem;
     }
 
     .identity {
@@ -710,17 +671,9 @@ header {
         gap: var(--space-sm);
     }
 
-    .project-hero-image,
-    .project-meta,
     .info-photo,
     .info-content {
         grid-column: 1;
-    }
-
-    .project-role,
-    .project-tools {
-        justify-content: flex-start;
-        margin-top: var(--space-sm);
     }
 
     .play-grid {
