@@ -267,7 +267,7 @@ header {
 }
 
 .work-about p {
-    font-size: calc(var(--fs-project-category) * 1.5);
+    font-size: 0.75rem;
     line-height: 1;
     margin-top: var(--space-sm);
 }
@@ -389,11 +389,27 @@ header {
 ======================================== */
 
 .info-section {
+    position: relative;
+
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-sm);
 
     margin-top: var(--space-sm);
+    min-height: calc(100vh - 6rem);
+}
+
+/* Continue the header divider between the image and biography columns. */
+.info-section::before {
+    content: "";
+
+    position: absolute;
+    top: calc(-1 * var(--space-sm));
+    bottom: calc(-1 * (4rem + 0.75rem));
+    left: calc(25% - (var(--space-sm) / 4));
+
+    width: 0.0625rem;
+    background: var(--color-text);
 }
 
 .info-photo {
@@ -432,10 +448,26 @@ header {
 ======================================== */
 
 .play-grid {
+    position: relative;
+
     column-count: 3;
     column-gap: var(--space-sm);
 
-    padding-top: var(--space-sm);
+    padding: var(--space-sm) 0 0 calc(25% + (var(--space-sm) / 4));
+    min-height: calc(100vh - 6rem);
+}
+
+/* Match the column divider used on the Work and Info pages. */
+.play-grid::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: calc(-1 * (4rem + 0.75rem));
+    left: calc(25% - (var(--space-sm) / 4));
+
+    width: 0.0625rem;
+    background: var(--color-text);
 }
 
 .play-grid video,
@@ -596,7 +628,7 @@ header {
     --fs-section-title: 3rem;
 
     --fs-info-heading: 1rem;
-    --fs-info-body: 1rem;
+    --fs-info-body: 0.75rem;
 
     --fs-footer: 1rem;
 
@@ -678,6 +710,11 @@ header {
 
     .play-grid {
         column-count: 1;
+        padding-left: 0;
+    }
+
+    .play-grid::before {
+        display: none;
     }
 
     .bottom-nav {
@@ -697,6 +734,10 @@ header {
     }
 
     .projects-grid::before {
+        display: none;
+    }
+
+    .info-section::before {
         display: none;
     }
 
