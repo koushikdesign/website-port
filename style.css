@@ -258,7 +258,7 @@ header {
 
 .work-about p,
 .project-info p {
-    margin-top: 0.15rem;
+    margin-top: 0.35rem;
 
     font-size: var(--fs-project-category);
     line-height: 1;
@@ -267,8 +267,8 @@ header {
 }
 
 .work-about p {
-    font-size: 0.75rem;
-    line-height: 1;
+    font-size: 1rem;
+    line-height: 1.3;
     margin-top: var(--space-sm);
 }
 
@@ -331,8 +331,8 @@ header {
 }
 
 .project-headings h2 {
-    font-size: 0.75rem;
-    line-height: 1;
+    font-size: 1rem;
+    line-height: 1.3;
     font-weight: var(--fw-project-title);
     color: var(--color-muted);
 }
@@ -423,6 +423,7 @@ header {
 
 .info-content {
     grid-column: span 3;
+    color: var(--color-muted);
 }
 
 .info-content h2 {
@@ -441,6 +442,24 @@ header {
     font-size: var(--fs-info-body);
     line-height: 1.3;
     font-weight: var(--fw-info-body);
+}
+
+.education-section {
+    margin-top: 3rem;
+    padding: 1.5rem 0;
+
+    border-top: 0.0625rem solid var(--color-text);
+    border-bottom: 0.0625rem solid var(--color-text);
+    color: var(--color-text);
+}
+
+.education-section h2 {
+    margin-bottom: var(--space-sm);
+}
+
+.education-section p {
+    margin-bottom: 0;
+    color: var(--color-muted);
 }
 
 /* ========================================
@@ -628,7 +647,7 @@ header {
     --fs-section-title: 3rem;
 
     --fs-info-heading: 1rem;
-    --fs-info-body: 0.75rem;
+    --fs-info-body: 1rem;
 
     --fs-footer: 1rem;
 
