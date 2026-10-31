@@ -47,8 +47,6 @@ body {
     top: 0;
     z-index: 100;
 
-    /* Keep the 12px area above the sticky header opaque while scrolling. */
-    padding-top: var(--space-sm);
     background: var(--color-bg);
 }
 
@@ -119,7 +117,8 @@ header {
 .primary-nav a {
     position: relative;
 
-    width: 100%;
+    width: max-content;
+    justify-self: center;
 
     text-align: center;
     text-decoration: none;
@@ -141,14 +140,14 @@ header {
     left: 50%;
     bottom: -0.3rem;
 
-    width: 0;
+    width: 110%;
     height: 0.0625rem;
 
     background: var(--color-header-text);
 
-    transform: translateX(-50%);
+    transform: translateX(-50%) scaleX(0);
 
-    transition: width 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 .primary-nav a:hover,
@@ -158,7 +157,7 @@ header {
 
 .primary-nav a:hover::after,
 .primary-nav a.active-page::after {
-    width: 2rem;
+    transform: translateX(-50%) scaleX(1);
 }
 
 /* ========================================
@@ -223,6 +222,7 @@ header {
 }
 
 .project-thumbnail {
+    position: relative;
     display: block;
     aspect-ratio: 1 / 1;
 
@@ -240,6 +240,15 @@ header {
     object-position: center;
 
     display: block;
+}
+
+.project-thumbnail iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    pointer-events: none;
 }
 
 .project-info {
@@ -283,6 +292,10 @@ header {
 }
 
 .work-about-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
     font-size: var(--fs-project-title);
     line-height: 1;
     font-weight: var(--fw-project-title);
@@ -290,6 +303,15 @@ header {
     text-decoration: none;
 
     transition: color 0.2s ease;
+}
+
+.work-about-links a::before {
+    content: "";
+    display: block;
+    width: 0.65rem;
+    height: 0.65rem;
+    flex: 0 0 0.65rem;
+    background: var(--color-blue);
 }
 
 .work-about-links a:hover {
@@ -303,6 +325,41 @@ header {
 /* ========================================
    PROJECT PAGE / HERO
 ======================================== */
+
+.project-detail-layout {
+    position: relative;
+    display: grid;
+    grid-template-columns: calc(25% - var(--space-sm)) minmax(0, 1fr);
+    gap: calc(var(--space-sm) * 2);
+    align-items: start;
+    margin-top: var(--space-sm);
+}
+
+.project-detail-layout::before {
+    content: "";
+    position: absolute;
+    top: calc(-1 * var(--space-sm));
+    bottom: 0;
+    left: 25%;
+    width: 0.0625rem;
+    background: var(--color-text);
+}
+
+.project-detail-layout .project-headings {
+    position: sticky;
+    top: calc(4rem + var(--space-sm));
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+}
+
+.project-detail-layout .project-media {
+    min-width: 0;
+    grid-column: 2;
+}
 
 .project-intro-layout {
     display: grid;
@@ -345,6 +402,10 @@ header {
 
 .project-content {
     margin-top: var(--space-sm);
+}
+
+.project-media > .project-content:first-child {
+    margin-top: 0;
 }
 
 .project-content video {
@@ -401,6 +462,22 @@ header {
     grid-column: 1 / -1;
 }
 
+.gff-video {
+    position: relative;
+    grid-column: 1 / -1;
+    width: 100%;
+    aspect-ratio: 5 / 1;
+}
+
+.gff-video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    pointer-events: none;
+}
+
 /* ========================================
    INFO PAGE
 ======================================== */
@@ -431,6 +508,8 @@ header {
 
 .info-photo {
     grid-column: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .info-photo img {
@@ -491,6 +570,7 @@ header {
     position: absolute;
     top: var(--space-sm);
     left: 0;
+    z-index: 1;
 
     width: calc(25% - var(--space-sm));
 }
@@ -507,11 +587,13 @@ header {
 .play-grid {
     position: relative;
 
-    column-count: 3;
-    column-gap: var(--space-sm);
-
     padding: var(--space-sm) 0 0 calc(25% + var(--space-sm));
     min-height: calc(100vh - 6rem);
+}
+
+.play-videos {
+    column-count: 3;
+    column-gap: var(--space-sm);
 }
 
 /* Match the column divider used on the Work and Info pages. */
@@ -540,6 +622,23 @@ header {
     vertical-align: top;
 
     object-fit: cover;
+}
+
+.play-video {
+    position: relative;
+    width: 100%;
+    margin-bottom: var(--space-sm);
+    break-inside: avoid;
+    overflow: hidden;
+}
+
+.play-video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    pointer-events: none;
 }
 
 /* ========================================
@@ -714,6 +813,102 @@ header {
     --fw-home: 400;
 }
 
+/* Keep the header and left column in place while the right column scrolls. */
+@media (min-width: 47.5625rem) {
+    .fixed-layout {
+        padding-bottom: 0;
+    }
+
+    .fixed-layout .container {
+        height: 100vh;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .fixed-layout .site-top {
+        flex: none;
+    }
+
+    .fixed-layout main {
+        flex: 1;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .fixed-layout .projects-grid,
+    .fixed-layout .info-section,
+    .fixed-layout .play-layout {
+        height: calc(100% - var(--space-sm));
+        min-height: 0;
+        margin-top: var(--space-sm);
+    }
+
+    .fixed-layout .projects-grid,
+    .fixed-layout .play-layout {
+        display: grid;
+        grid-template-columns: calc(25% - var(--space-sm)) minmax(0, 1fr);
+        column-gap: calc(var(--space-sm) * 2);
+        padding-left: 0;
+    }
+
+    .fixed-layout .projects-grid::before,
+    .fixed-layout .info-section::before {
+        bottom: 0;
+        pointer-events: none;
+    }
+
+    .fixed-layout .work-about,
+    .fixed-layout .play-about {
+        position: static;
+        width: auto;
+        min-height: 0;
+        overflow-y: auto;
+    }
+
+    .fixed-layout .work-projects {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: var(--space-sm);
+        align-content: start;
+        min-width: 0;
+        min-height: 0;
+        overflow-y: auto;
+    }
+
+    .fixed-layout .info-photo {
+        min-height: 0;
+        overflow-y: auto;
+    }
+
+    .fixed-layout .info-content {
+        min-height: 0;
+        overflow-y: auto;
+    }
+
+    .fixed-layout .play-layout::before {
+        content: "";
+        position: absolute;
+        top: calc(-1 * var(--space-sm));
+        bottom: 0;
+        left: 25%;
+        width: 0.0625rem;
+        background: var(--color-text);
+        pointer-events: none;
+    }
+
+    .fixed-layout .play-grid {
+        min-height: 0;
+        height: 100%;
+        padding: var(--space-sm) 0 0;
+        overflow-y: auto;
+    }
+
+    .fixed-layout .play-grid::before {
+        display: none;
+    }
+}
+
 @media (max-width: 47.5rem) {
     body {
         padding-bottom: 0;
@@ -743,6 +938,24 @@ header {
         grid-column: 1;
     }
 
+    .project-detail-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .project-detail-layout::before {
+        display: none;
+    }
+
+    .project-detail-layout .project-headings {
+        position: static;
+        max-height: none;
+        overflow: visible;
+    }
+
+    .project-detail-layout .project-media {
+        grid-column: 1;
+    }
+
     .project-headings {
         gap: 0.6rem;
     }
@@ -765,8 +978,11 @@ header {
         grid-column: 1;
     }
 
-    .play-grid {
+    .play-videos {
         column-count: 1;
+    }
+
+    .play-grid {
         padding-left: 0;
     }
 
@@ -812,7 +1028,7 @@ header {
 }
 
 @media (min-width: 47.5625rem) and (max-width: 68.75rem) {
-    .play-grid {
+    .play-videos {
         column-count: 2;
     }
 
