@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400&family=Source+Code+Pro:wght@400&display=swap');
+
 /* ========================================
    RESET
 ======================================== */
@@ -106,6 +108,7 @@ header {
 
     text-decoration: none;
     color: var(--color-header-text);
+    font-family: var(--font-light);
 
     text-align: left;
     width: auto;
@@ -152,6 +155,7 @@ header {
     text-decoration: none;
 
     color: var(--color-header-text);
+    font-family: var(--font-light);
 
     font-size: var(--fs-nav);
     line-height: 1;
@@ -299,6 +303,7 @@ header {
 .project-info p {
     margin-top: 0.35rem;
 
+    font-family: var(--font-secondary);
     font-size: var(--fs-project-category);
     line-height: 1;
     font-weight: var(--fw-project-category);
@@ -306,9 +311,13 @@ header {
 }
 
 .work-about p {
-    font-size: 1rem;
+    font-size: var(--fs-project-title);
     line-height: 1.3;
     margin-top: var(--space-sm);
+}
+
+.project-info p {
+    margin-top: 0.475rem;
 }
 
 .work-about-links {
@@ -324,6 +333,7 @@ header {
     align-items: center;
     gap: 0.6rem;
 
+    font-family: var(--font-main);
     font-size: var(--fs-project-title);
     line-height: 1;
     font-weight: var(--fw-project-title);
@@ -382,20 +392,25 @@ header {
     gap: 2rem;
     max-height: calc(100vh - 8rem);
     overflow-y: auto;
+    font-family: var(--font-secondary);
 }
 
 .project-detail-layout .project-headings p {
-    font-size: 0.85rem;
+    font-size: var(--fs-project-title);
     line-height: 1.3;
     color: var(--color-muted);
 }
 
-.project-detail-layout .project-headings .project-label {
-    color: var(--color-text);
-}
-
+.project-detail-layout .project-headings .project-label,
 .project-detail-layout .project-headings .project-title {
     color: var(--color-text);
+    font-family: var(--font-main);
+    font-size: 1rem;
+}
+
+.project-detail-layout .team-credit .project-label {
+    display: block;
+    margin-bottom: 0.225rem;
 }
 
 .project-detail-layout .project-headings a {
@@ -448,7 +463,7 @@ header {
 }
 
 .project-detail-layout .project-headings h2 {
-    font-size: 0.85rem;
+    font-size: var(--fs-project-title);
 }
 
 /* ========================================
@@ -501,7 +516,8 @@ header {
 }
 
 .project-detail-layout .section-title {
-    font-size: 2.55rem;
+    font-family: var(--font-main);
+    font-size: 1rem;
 }
 
 .styleframes-grid {
@@ -543,6 +559,7 @@ header {
 
 .info-section {
     position: relative;
+    font-family: var(--font-secondary);
 
     display: grid;
     grid-template-columns: calc(25% - var(--space-sm)) 1fr;
@@ -617,12 +634,22 @@ header {
     color: var(--color-muted);
 }
 
+.education-section a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.education-section a:hover {
+    color: var(--color-blue);
+}
+
 /* ========================================
    PLAY PAGE
 ======================================== */
 
 .play-layout {
     position: relative;
+    font-family: var(--font-secondary);
 }
 
 .play-about {
@@ -821,8 +848,10 @@ header {
     --color-header-text: #fff;
 
     /* Fonts */
-    --font-main: "roc-grotesk", "Helvetica Neue", Arial, sans-serif;
-    --font-home: "roc-grotesk", "Helvetica Neue", Arial, sans-serif;
+    --font-main: "Source Code Pro", monospace;
+    --font-home: "Source Code Pro", monospace;
+    --font-light: "Source Code Pro", monospace;
+    --font-secondary: "Google Sans", "Helvetica Neue", Arial, sans-serif;
 
     /* Spacing */
     --space-sm: 0.75rem;
