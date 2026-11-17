@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400&family=Source+Code+Pro:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 /* ========================================
    RESET
@@ -33,6 +33,7 @@ body {
     font-family: var(--font-main);
     font-size: var(--fs-body);
     font-weight: var(--fw-body);
+    font-variation-settings: "wght" 400;
 
     padding-bottom: 4rem;
 }
@@ -53,7 +54,7 @@ body {
     padding: 0.25rem 0.4rem 0.25rem 0;
     background: var(--color-bg);
     color: var(--color-text);
-    font-size: 1.5rem;
+    font-size: 12px;
     line-height: 1;
     font-variant-numeric: tabular-nums;
 }
@@ -393,6 +394,7 @@ header {
     max-height: calc(100vh - 8rem);
     overflow-y: auto;
     font-family: var(--font-secondary);
+    font-weight: 300;
 }
 
 .project-detail-layout .project-headings p {
@@ -405,7 +407,8 @@ header {
 .project-detail-layout .project-headings .project-title {
     color: var(--color-text);
     font-family: var(--font-main);
-    font-size: 1rem;
+    font-size: 12px;
+    font-weight: 400;
 }
 
 .project-detail-layout .team-credit .project-label {
@@ -456,7 +459,7 @@ header {
 }
 
 .project-headings h2 {
-    font-size: 1rem;
+    font-size: 12px;
     line-height: 1.3;
     font-weight: var(--fw-project-title);
     color: var(--color-muted);
@@ -517,7 +520,7 @@ header {
 
 .project-detail-layout .section-title {
     font-family: var(--font-main);
-    font-size: 1rem;
+    font-size: 12px;
 }
 
 .styleframes-grid {
@@ -560,6 +563,7 @@ header {
 .info-section {
     position: relative;
     font-family: var(--font-secondary);
+    font-weight: 300;
 
     display: grid;
     grid-template-columns: calc(25% - var(--space-sm)) 1fr;
@@ -650,6 +654,7 @@ header {
 .play-layout {
     position: relative;
     font-family: var(--font-secondary);
+    font-weight: 300;
 }
 
 .play-about {
@@ -664,7 +669,7 @@ header {
 .play-about p {
     margin-top: var(--space-sm);
 
-    font-size: 1rem;
+    font-size: 12px;
     line-height: 1.3;
     font-weight: var(--fw-project-category);
     color: var(--color-muted);
@@ -848,35 +853,35 @@ header {
     --color-header-text: #fff;
 
     /* Fonts */
-    --font-main: "Source Code Pro", monospace;
-    --font-home: "Source Code Pro", monospace;
-    --font-light: "Source Code Pro", monospace;
-    --font-secondary: "Google Sans", "Helvetica Neue", Arial, sans-serif;
+    --font-main: "cofo-sans-mono-variable", monospace;
+    --font-home: "cofo-sans-mono-variable", monospace;
+    --font-light: "cofo-sans-mono-variable", monospace;
+    --font-secondary: "Open Sans", "Helvetica Neue", Arial, sans-serif;
 
     /* Spacing */
     --space-sm: 0.75rem;
 
     /* Font Sizes */
-    --fs-body: 1rem;
+    --fs-body: 12px;
 
-    --fs-name: 1rem;
-    --fs-role: 0.75rem;
-    --fs-nav: 1rem;
+    --fs-name: 12px;
+    --fs-role: 12px;
+    --fs-nav: 12px;
 
-    --fs-project-title: 1rem;
-    --fs-project-category: 0.75rem;
+    --fs-project-title: 12px;
+    --fs-project-category: 12px;
 
-    --fs-project-page-title: 1rem;
-    --fs-project-description: 0.75rem;
-    --fs-detail: 0.75rem;
-    --fs-section-title: 3rem;
+    --fs-project-page-title: 12px;
+    --fs-project-description: 12px;
+    --fs-detail: 12px;
+    --fs-section-title: 12px;
 
-    --fs-info-heading: 1rem;
-    --fs-info-body: 1rem;
+    --fs-info-heading: 12px;
+    --fs-info-body: 12px;
 
-    --fs-footer: 1rem;
+    --fs-footer: 12px;
 
-    --fs-home: 12rem;
+    --fs-home: 12px;
 
     /* Font Weights */
     --fw-body: 400;
@@ -886,15 +891,15 @@ header {
     --fw-nav: 400;
 
     --fw-project-title: 400;
-    --fw-project-category: 400;
+    --fw-project-category: 300;
 
     --fw-project-page-title: 400;
     --fw-project-description: 400;
     --fw-detail: 400;
     --fw-section-title: 400;
 
-    --fw-info-heading: 400;
-    --fw-info-body: 400;
+    --fw-info-heading: 300;
+    --fw-info-body: 300;
 
     --fw-footer: 400;
 
@@ -1090,7 +1095,7 @@ header {
     }
 
     .landing-link {
-        font-size: 5rem;
+        font-size: 12px;
         line-height: 1.1;
         letter-spacing: 0.35rem;
     }
@@ -1121,7 +1126,7 @@ header {
     }
 
     .landing-link {
-        font-size: 8rem;
+        font-size: 12px;
         line-height: 1.2;
         letter-spacing: 0.6rem;
     }
